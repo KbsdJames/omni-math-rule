@@ -5,6 +5,10 @@ import datasets
 from datasets import load_dataset, Dataset, concatenate_datasets
 from utils import load_jsonl, lower_keys
 
+def load_data_vanilla(path):
+    examples = list(load_jsonl(path))
+    examples = [lower_keys(example) for example in examples]
+    return examples
 
 def load_data(data_name, split, data_dir="./data"):
     data_file = f"{data_dir}/{data_name}/{split}.jsonl"
