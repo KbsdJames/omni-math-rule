@@ -576,6 +576,10 @@ def parse_ground_truth(example: Dict[str, Any], data_name):
     if "gt_cot" in example and "gt" in example:
         if data_name in ["math"]:
             gt_ans = extract_answer(example["gt_cot"], data_name)
+        elif data_name == "omni-math":
+            if "boxed" not in example["gt_cot"]:
+                example["gt_cot"] = "\\boxed" + "{" + example['gt_cot'] + "}"
+            gt_ans = extract_answer(example["gt_cot"], data_name)
         elif data_name in STRIP_EXCEPTIONS:
             gt_ans = example["gt"]
         else:
@@ -583,7 +587,7 @@ def parse_ground_truth(example: Dict[str, Any], data_name):
         return example["gt_cot"], gt_ans
 
     # parse ground truth
-    if data_name in ["math", "minerva_math"]:
+    if data_name in ["math", "minerva_math", "omni-math"]:
         gt_cot = example["solution"]
         gt_ans = extract_answer(gt_cot, data_name)
     elif data_name == "gsm8k":

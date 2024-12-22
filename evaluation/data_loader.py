@@ -7,7 +7,8 @@ from utils import load_jsonl, lower_keys
 
 def load_data_vanilla(path):
     examples = list(load_jsonl(path))
-    examples = [lower_keys(example) for example in examples]
+    if "idx" not in examples[0]:
+        examples = [{"idx": i, **example} for i, example in enumerate(examples)]
     return examples
 
 def load_data(data_name, split, data_dir="./data"):

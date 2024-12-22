@@ -93,10 +93,14 @@ def main(data_name, args):
 
     samples = []
     for cnt, example in tqdm(enumerate(examples), total=len(examples)):
-        try:
-            example['solution'] = example['solution']
-        except:
+
+        if args.data_name == "omni-math":
             example['solution'] = example['answer']
+        else:
+            try:
+                example['solution'] = example['solution']
+            except:
+                example['solution'] = example['answer']
         
         if 'idx' in example.keys():
             idx = example["idx"]
@@ -104,7 +108,10 @@ def main(data_name, args):
             idx = cnt
 
         # parse question and answer
-        example["question"] = example['question']
+        try:
+            example["question"] = example['question']
+        except:
+            example["question"] = example['problem']
 
         gt_cot, gt_ans = parse_ground_truth(example, data_name)
         example["gt_ans"] = gt_ans
