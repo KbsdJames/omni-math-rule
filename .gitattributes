@@ -1,0 +1,2 @@
+evaluation/output/QwQ-32B-Preview/omni-math/math_eval.jsonl filter=lfs diff=lfs merge=lfs -text
+inference/results/OmniMATH_rule_test_QwQ-32B-Preview.jsonl filter=lfs diff=lfs merge=lfs -text
