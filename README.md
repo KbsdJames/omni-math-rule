@@ -27,11 +27,11 @@
 
 
 ## 📢 Repo Info
-This repository is a streamlined version of Omni-MATH. During our verification process, we found that QwenMATH's reasoning evaluation code demonstrates a certain level of robustness. To make it more user-friendly (eliminating the need for an additional model-based evaluator), we extracted the subset of Omni-MATH problems suitable for rule-based evaluation and made some modifications to the evaluation code of Qwen2.5-MATH. This allows for easier model evaluation.
+This repository is a simplified version of Omni-MATH. During our verification process, we found that QwenMATH's evaluation code demonstrates a certain level of robustness. To make our benchmark more user-friendly (eliminating the need for an additional model-based evaluator), we extracted the subset of Omni-MATH problems suitable for rule-based evaluation and made some modifications to the evaluation code of Qwen2.5-MATH. This allows for easier model evaluation.
 
 For detailed filtering methods, please refer to our paper. In brief, we analyzed the reasoning results of multiple models and selected a subset of problems where the models' outputs aligned with rule-based evaluations. Finally, each problem was manually verified to ensure that the answer format is sufficiently simple and clear, making it suitable for rule-based evaluation. 
 
-*Note: The rule-based evaluation are also suitable for evaluating the inference results of other mathematical datasets such asgsm8k and MATH.*
+*Note: The rule-based evaluation are also suitable for evaluating the inference results of other mathematical datasets such as gsm8k and MATH.*
 
 ## 👨‍💻 Usage
 
